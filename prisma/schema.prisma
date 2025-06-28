@@ -54,6 +54,7 @@ model Produto{
     descricao     String  @default("placeholder")
     nota          Int
     desconto      Float
+    tags          String?
 
 }
 
