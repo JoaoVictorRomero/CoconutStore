@@ -1,9 +1,9 @@
-import { Navbar } from "./_components/navbar";
+import { ProductShowcase } from "./_components/ProductShowcase";
 
 export default function HomePage() {
   return(
     <main>
-
+      <ProductShowcase/>
     </main>
   )
 }
