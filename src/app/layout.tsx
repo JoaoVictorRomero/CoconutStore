@@ -6,6 +6,7 @@ import { Geist } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
+import { Pqescolher } from "./_components/pqescolher"
 
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
+        <Pqescolher/>
         <Footer/>
 
       </body>
