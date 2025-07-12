@@ -3,14 +3,14 @@ export function Footer(){
 
     const informacoesDoBlocoContato = {
         telefone: "(**) 9999-9999",
-        email: "CoconutStore@CoconutStore.com",
+        email: "...@CoconutStore.com",
         local: "Brasilia,DF"
 
     }
     return(
-        <footer className= " max-w-[1280px] h-[300px] bg-[#111827] p-10 text-white flex flex-col">
+        <footer className= " max-w-[1280px] h-[300px] bg-[#111827] text-white">
 
-            <div className="flex space-x-20 justify-center m-auto p-3">
+            <div className="flex space-x-10 justify-center m-auto py-10">
 
                 
                 {/* BLOCO DO COCONUTSTORE */}
@@ -41,7 +41,7 @@ export function Footer(){
 
                 
                 {/* BLOCO DOS CONTATOS */}
-                <div className=" w-60">
+                <div className=" w-">
                     <h3>Contato</h3>
                     <ul className="text-[#9CA3AF] text-xs py-2">
                         <li className="py-1.5"> 📞 {informacoesDoBlocoContato.telefone} </li>
