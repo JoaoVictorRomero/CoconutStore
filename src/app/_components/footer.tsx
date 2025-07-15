@@ -1,12 +1,13 @@
+import { email } from "zod/v4";
 
-export function Footer(){
-
-    const informacoesDoBlocoContato = {
-        telefone: "(**) 9999-9999",
-        email: "...@CoconutStore.com",
-        local: "Brasilia,DF"
-
+    type Props = {
+        telefone:string;
+        email:string;
+        local: string;
     }
+
+export function Footer(props:Props){
+    
     return(
         <footer className= " max-w-[1280px] h-[300px] bg-[#111827] text-white">
 
@@ -44,9 +45,9 @@ export function Footer(){
                 <div className=" w-">
                     <h3>Contato</h3>
                     <ul className="text-[#9CA3AF] text-xs py-2">
-                        <li className="py-1.5"> 📞 {informacoesDoBlocoContato.telefone} </li>
-                        <li className="py-1.5"> 📧 {informacoesDoBlocoContato.email} </li>
-                        <li className="py-1.5"> 📍  {informacoesDoBlocoContato.local} </li>
+                        <li className="py-1.5"> 📞 {props.telefone} </li>
+                        <li className="py-1.5"> 📧 {props.email} </li>
+                        <li className="py-1.5"> 📍  {props.local} </li>
                     </ul>
                 </div>
 

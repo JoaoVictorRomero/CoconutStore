@@ -30,7 +30,11 @@ export default function RootLayout({
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
-        <Footer/>
+        <Footer
+          telefone = "(61) 9999-9999"
+          email =  "atendimento@CoconutStore.com"
+          local = "Brasilia,DF"
+        />
 
       </body>
     </html>
