@@ -6,7 +6,7 @@ import { Geist } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
-import { Pqescolher } from "./_components/pqescolher"
+import { Pre_footer } from "./_components/pre_footer"
 
 
 export const metadata: Metadata = {
@@ -31,7 +31,18 @@ export default function RootLayout({
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
-        <Pqescolher/>
+        <Pre_footer
+        tipo = "Nossa Equipe"
+        />
+
+        <Pre_footer
+        tipo = "Entre em Contato"
+        />
+
+        <Pre_footer
+        tipo = "Por que Escolher a CoconutStore?"
+        />
+
         <Footer/>
 
       </body>
