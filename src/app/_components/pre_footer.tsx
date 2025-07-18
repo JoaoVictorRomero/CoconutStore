@@ -11,7 +11,7 @@ type prop_pre_footer = {
 }
 
 // Função responsável por retornar o conteúdo e o layout específicos de cada tipo de pre-footer 
-// ("Por que Escolher a CoconutStore?", "Entre em Contato" ou "Nossa Equipe")
+// - "Por que Escolher a CoconutStore?", "Entre em Contato" ou "Nossa Equipe" -
 function obtendo_dados(tipo:string){
 
     let titulo_subtitulo_principal:string[];
@@ -70,7 +70,7 @@ function obtendo_dados(tipo:string){
             ["max-w-[1280px] h-[460px] m-auto bg-[linear-gradient(14deg,_#F7F9F1,_#FFFBEB)]"],["flex justify-center space-x-15 px-15"]
         ];
 
-        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4  rounded-md shadow-lg/10"]
+        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4 shadow-lg/10 border border-gray-200 rounded-lg"]
 
     }
 
@@ -85,7 +85,7 @@ function obtendo_dados(tipo:string){
             ["Joao Romero","Desenvolvedor" ],
             ["Bernardo L.C.Boiteux","Desenvolvedor"],
             ["Nikolas Pessoa ","Gerente de Projeto"],
-            ["Gabriel Balder","Product Owner, DF"]
+            ["Gabriel Balder","Product Owner"]
         ];
 
         imagem_exibicao = [
@@ -96,22 +96,25 @@ function obtendo_dados(tipo:string){
         ];
             
         layout_blocos_1e2 = [
-            ["max-w-[1280px] h-[460px] m-auto bg-[linear-gradient(14deg,_#F0FDF4,_#FFFBEB)]"],["flex justify-center space-x-15 px-15"]
+            ["max-w-[1280px] h-[460px] m-auto bg-white"],["flex justify-center space-x-15 px-15"]
         ];
 
-        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4  rounded-md shadow-lg/10"]
+        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4 shadow-lg/10 border border-gray-200 rounded-lg"]
     }
-    
+    else{
+        console.log("Durante a utilização do componente PRE_FOOTER, não foi definido qual tipo deve ser usado. Lembre-se de que só existem os seguintes tipos disponíveis: Por que Escolher a CoconutStore?, Entre em Contato ou Nossa Equipe. Para isso, no momento de utilizar o componente, atribua à prop texto o tipo de pre-footer desejado (um dos três citados acima).")
+    }
+
     return {titulo_subtitulo_principal, texto_bloco_card_informacao, imagem_exibicao, layout_blocos_1e2, layout_bloco_card_informacoes};
 }
 
 
-
-
+// Função responsável por exibir as subdivisões de cards de informação.
 function Card_Informacao({texto, desc, sub_desc, imagem, layout}:prop_pre_footer) {
     return(
 
         <div className={layout[0]}>
+
             <div className=" transition-transform duration-300 ease-in-out hover:scale-115 bg-white rounded-full w-[50px] h-[50px] m-auto shadow-lg/30">
                 <img className="m-auto p-3" src={imagem} alt="" />
             </div>
@@ -122,11 +125,10 @@ function Card_Informacao({texto, desc, sub_desc, imagem, layout}:prop_pre_footer
                 {sub_desc != null && <p className="text-center text-[#4B5563] text-[13px] ">{sub_desc}</p> }
             </>
             
-            
-
         </div>
     )
 }
+
 
 export function Pre_footer({tipo}:prop_pre_footer){
 
