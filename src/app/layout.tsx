@@ -7,6 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer"
+import { NossaHistoria } from "./_components/nossa_historia";
 
 
 export const metadata: Metadata = {
@@ -30,6 +31,10 @@ export default function RootLayout({
         <Navbar/>
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
+
+
+
+        <NossaHistoria/>
 
         <Pre_footer
         tipo = "Nossa Equipe"
