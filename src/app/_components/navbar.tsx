@@ -1,4 +1,5 @@
 import { Button } from "src/components/ui/button"
+import Logar from "./auth"
 
 function ShoppingCart() {
   return(
@@ -24,11 +25,14 @@ export function Navbar() {
         </ul>
 
 
-        <ul className="basis-1/3 flex justify-end items-center">
-          <li><Button variant="outline" size="sm" >
-            <ShoppingCart/>
-            Carrinho
-          </Button></li>
+        <ul className="basis-1/3 flex justify-end items-center gap-8">
+          {/* <li><Button variant="outline" size="sm" > */}
+            {/* <ShoppingCart/> */}
+            {/* Carrinho */}
+          {/* </Button></li> */}
+          <li>
+            <Logar/>
+          </li>
         </ul>
       </nav>
     </div>
