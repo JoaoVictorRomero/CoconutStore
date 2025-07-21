@@ -33,7 +33,7 @@ export default function RootLayout({
         <Footer
           telefone = "(61) 9999-9999"
           email =  "atendimento@CoconutStore.com"
-          local = "Brasilia,DF"
+          local = "Brasilia, DF"
         />
 
       </body>
