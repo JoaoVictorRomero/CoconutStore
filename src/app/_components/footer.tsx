@@ -1,10 +1,3 @@
-import { email } from "zod/v4";
-
-    type Props = {
-        telefone:string;
-        email:string;
-        local: string;
-    }
 
     type props_genericoBlocoInformacao = {
         inf1:string,
@@ -12,7 +5,6 @@ import { email } from "zod/v4";
         inf3:string,
         style:string,
         titulo:string,
-
     }
 
 
@@ -29,8 +21,7 @@ function GenericoBlocoInformacao({titulo, inf1, inf2, inf3, style}:props_generic
     );
 }
 
-export function Footer(props:Props){
-
+export function Footer(){
 
     return(
 
@@ -76,14 +67,10 @@ export function Footer(props:Props){
                 
                 </div>
 
-
                 <hr className="text-[#9CA3AF]"/>
                 <div className="flex justify-center text-[#9CA3AF] text-xs py-4 pb-10">
                     <p className="">© 2024 CoconutStore. Todos os direitos reservados.</p>
                 </div>
-
-                    
-                
 
             </footer>
 
