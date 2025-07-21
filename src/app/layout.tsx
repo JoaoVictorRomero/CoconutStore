@@ -8,6 +8,7 @@ import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer"
 import { NossaHistoria } from "./_components/nossa_historia";
+import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Navbar/>
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
+        <Intro_pag_sobre/>
 
 
 
