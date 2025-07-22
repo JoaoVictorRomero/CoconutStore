@@ -4,7 +4,7 @@ import { api } from "~/trpc/react";
 import { CardProduto } from "../_components/cardProduto"
 
 export default function Page() {
-  const [sla] = api.user.showProduct.useSuspenseQuery();
+  const [sla] = api.product.showProduct.useSuspenseQuery();
 
 
   return(
