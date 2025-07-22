@@ -37,7 +37,7 @@ model Product {
 
 model Cart {
   id       Int       @id @default(autoincrement())
-  products Product[]
+  products Product[]?
   User     User[]
 }
 
