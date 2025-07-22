@@ -10,6 +10,7 @@ import {
 import { Input } from "~/components/ui/input"
 import { Button } from "~/components/ui/button"
 import { Label } from "~/components/ui/label"
+import { handleAddCart } from "./actions"
 
 export function CardProduto({name, description, price}) {
   return (
@@ -27,8 +28,10 @@ export function CardProduto({name, description, price}) {
         <p className="text-2xl text-center font-bold text-amber-700">R$ {price}</p>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full bg-amber-700">
-          Adicionar ao carrinho
+        <Button className="w-full bg-amber-700" asChild>
+          <button onClick={handleAddCart}>
+            Adicionar ao carrinho
+          </button>
         </Button>
       </CardFooter>
     </Card>
