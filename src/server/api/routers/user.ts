@@ -15,11 +15,4 @@ export const userRouter = createTRPCRouter({
     });
     return user;
   }),
-
-  showProduct: publicProcedure.query(async ({ctx}) => {
-    const products = await ctx.db.product.findMany();
-    return products ?? null;
-  }),
-
-  // addProduct: protectedProcedure.
 });
