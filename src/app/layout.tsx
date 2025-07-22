@@ -9,6 +9,7 @@ import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer"
 import { NossaHistoria } from "./_components/nossa_historia";
 import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
+import { Generico_card_sobre } from "./_components/generico_card_sobre";
 
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Intro_pag_sobre/>
+        <Generico_card_sobre/>
 
 
 
