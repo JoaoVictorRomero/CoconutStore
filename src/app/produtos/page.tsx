@@ -11,17 +11,8 @@ export default function Page() {
     <div className="max-w-[1280px] m-auto pt-6 px-4">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))]  gap-4 place-content-center ">
         {sla.map((product) => (
-          <p>{product.name}</p>
+          <CardProduto name={product.name} description={product.description} price={product.price} />
         ))}
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
-        <CardProduto />
       </div>
     </div>
   );
