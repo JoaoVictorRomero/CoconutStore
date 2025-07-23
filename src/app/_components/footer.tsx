@@ -28,7 +28,7 @@ export function Footer(){
         <div className="bg-[#111827] text-white">
             <footer>
 
-                <div className="flex max-w-[1280px] justify-center m-auto py-10">
+                <div className="flex flex-col md:flex-row max-w-[1280px] justify-center m-auto py-10">
 
                     {/* BLOCO DO COCONUTSTORE */}
                     <header className="w-[300px] px-4">
@@ -36,7 +36,7 @@ export function Footer(){
                         <p className="text-[#9CA3AF] text-xs py-3.5">Os melhores cocos frescos, direto da fazenda para sua casa.</p>
                     </header>
 
-                    <section className="flex space-x-1">
+                    <section className="flex flex-col md:flex-row space-x-30">
                         {/* BLOCO DOS PRODUTOS */}
                         <GenericoBlocoInformacao
                             titulo={"Produtos"}
