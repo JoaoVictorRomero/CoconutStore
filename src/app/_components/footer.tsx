@@ -27,14 +27,7 @@ export function Footer(){
             
             <footer className="bg-[#111827] text-white">
 
-<<<<<<< HEAD
-        <div className="bg-[#111827] text-white">
-            <footer>
-
-                <div className="flex flex-col md:flex-row max-w-[1280px] justify-center m-auto py-10">
-=======
                 <div className="flex flex-col sm:flex-row max-w-[1280px] m-auto py-15">
->>>>>>> NossaHistoria
 
                     {/* BLOCO DO COCONUTSTORE */}
                     <header className="sm:w-[400px] m-auto sm:m-4 px-4">
@@ -42,9 +35,6 @@ export function Footer(){
                         <h4 className="text-[#9CA3AF] text-sm py-3.5">Os melhores cocos frescos, direto da fazenda para sua casa.</h4>
                     </header>
 
-<<<<<<< HEAD
-                    <section className="flex flex-col md:flex-row space-x-30">
-=======
                     <section className="
                         flex flex-col 
                         sm:flex-row 
@@ -52,7 +42,6 @@ export function Footer(){
                         m-auto sm:m-0
                         ">
                             
->>>>>>> NossaHistoria
                         {/* BLOCO DOS PRODUTOS */}
                         <GenericoBlocoInformacao
                             titulo={"Produtos"}
