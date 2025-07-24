@@ -1,7 +1,8 @@
 export function Intro_pag_sobre(){
     
     return(
-        <section className="bg-gradient-to-br from-[#fffbeb] to-[#f0fdf4] py-15">
+        
+        <section className="bg-gradient-to-br from-[#fffbeb] to-[#f0fdf4] py-5">
             <div className="max-w-[1280px] m-auto">
 
                 <header className="w-[350px] m-auto py-4">
