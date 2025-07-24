@@ -4,7 +4,7 @@ export function NossaHistoria(){
 
         <section className="bg-gradient-to-br from-[#f0fdfd] to-[#fffbeb] py-20">
 
-            <section className="flex flex-col md:flex-row max-w-[1280px] m-auto gap-x-10 px-0">
+            <section className="flex flex-col md:flex-row max-w-[1280px] m-auto gap-x-10 px-0 md:px-10">
 
                 <section className="w-[70%] m-auto md:m-0">
                     <header className="">
