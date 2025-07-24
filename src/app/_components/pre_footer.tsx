@@ -41,10 +41,11 @@ function obtendo_dados(tipo:string){
         ];
 
         layout_blocos_1e2 = [
-            ["max-w-[1280px] h-[460px] m-auto bg-[linear-gradient(14deg,_#F0FDF4,_#FFFBEB)]"],["flex justify-center space-x-30 px-20"]
+            ["bg-[linear-gradient(14deg,_#F0FDF4,_#FFFBEB)]"],
+            ["gap-x-10"]
         ];
 
-        layout_bloco_card_informacoes = ["w-[384px]"]
+        layout_bloco_card_informacoes = ["w-full"]
     }
 
     else if (tipo == "Entre em Contato"){
@@ -67,10 +68,11 @@ function obtendo_dados(tipo:string){
         ];
             
         layout_blocos_1e2 = [
-            ["max-w-[1280px] h-[460px] m-auto bg-[linear-gradient(14deg,_#F7F9F1,_#FFFBEB)]"],["flex justify-center space-x-15 px-15"]
+            ["bg-[linear-gradient(14deg,_#F7F9F1,_#FFFBEB)]"],
+            ["gap-x-10"]
         ];
 
-        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4 shadow-lg/10 border border-gray-200 rounded-lg"]
+        layout_bloco_card_informacoes = ["w-full bg-white p-5 shadow-lg/10 border border-gray-200 rounded-lg"]
 
     }
 
@@ -96,10 +98,11 @@ function obtendo_dados(tipo:string){
         ];
             
         layout_blocos_1e2 = [
-            ["max-w-[1280px] h-[460px] m-auto bg-white"],["flex justify-center space-x-15 px-15"]
+            ["bg-white"],
+            ["gap-x-10"]
         ];
 
-        layout_bloco_card_informacoes = ["w-[600px] bg-white p-4 shadow-lg/10 border border-gray-200 rounded-lg"]
+        layout_bloco_card_informacoes = ["p-5 w-full bg-white p-4 shadow-lg/10 border border-gray-200 rounded-lg"]
     }
     else{
         console.log("Durante a utilização do componente PRE_FOOTER, não foi definido qual tipo deve ser usado. Lembre-se de que só existem os seguintes tipos disponíveis: Por que Escolher a CoconutStore?, Entre em Contato ou Nossa Equipe. Para isso, no momento de utilizar o componente, atribua à prop texto o tipo de pre-footer desejado (um dos três citados acima).")
@@ -113,13 +116,14 @@ function obtendo_dados(tipo:string){
 function Card_Informacao({texto, desc, sub_desc, imagem, layout}:prop_pre_footer) {
     return(
 
-        <div className={layout[0]}>
+        <div className={`${layout[0]} mb-4`}>
 
-            <div className=" transition-transform duration-300 ease-in-out hover:scale-115 bg-white rounded-full w-[50px] h-[50px] m-auto shadow-lg/30">
+            <figure className=" transition-transform duration-300 ease-in-out hover:scale-115 bg-white rounded-full w-[50px] h-[50px] m-auto shadow-lg/30">
                 <img className="m-auto p-3" src={imagem} alt="" />
-            </div>
+            </figure>
+
             <h3 className="text-center font-bold p-4">{texto}</h3>
-            <p className="text-center text-[#4B5563] text-[13px] ">{desc}</p>
+            <p className="text-center text-[#4B5563] text-[13px] p-4">{desc}</p>
 
             <>
                 {sub_desc != null && <p className="text-center text-[#4B5563] text-[13px] ">{sub_desc}</p> }
@@ -137,58 +141,60 @@ export function Pre_footer({tipo}:prop_pre_footer){
     return(
 
         // Bloco 1 --> div pai, div que engloba tudo
-        <div className={layout_blocos_1e2[0]}>
+        <section className= {layout_blocos_1e2[0]}>
+            <div className="max-w-[1280px] m-auto py-15">
 
-            {/*Bloco 2 --> div que apresenta o Titulo e Subtítulo */}
-            <div className=" w-[600px] m-auto pt-15 pb-15">
-                <h1 className="text-center text-[35px] font-semibold">{titulo_subtitulo_principal[0]}</h1>
-                <p className="text-center text-[#4B5563] p-3 text-[18.5px]">{titulo_subtitulo_principal[1]}</p>
+                {/*Bloco 2 --> div que apresenta o Titulo e Subtítulo */}
+                <header className=" w-full m-auto pt-10 pb-10">
+                    <h1 className="text-center text-[35px] font-semibold">{titulo_subtitulo_principal[0]}</h1>
+                    <p className="text-center text-[#4B5563] p-3 text-[18.5px]">{titulo_subtitulo_principal[1]}</p>
+                </header>
 
-            </div>
+                {/* Bloco 3 --> Bloco div pai que contem as subdivs de card de informacao */}
+                <div className={`flex flex-col md:flex-row m-auto ${layout_blocos_1e2[1]} px-4`}>
 
-            {/* Bloco 3 --> Bloco div pai que contem as subdivs de card de informacao */}
-            <div className={layout_blocos_1e2[1]}>
-
-                <Card_Informacao 
-                    texto = {texto_bloco_card_informacao[0][0]}
-                    desc = {texto_bloco_card_informacao[0][1]}
-                    sub_desc = {texto_bloco_card_informacao[0][2]}
-                    imagem = {imagem_exibicao[0]}
-                    layout = {layout_bloco_card_informacoes}
-                    
-                />
-
-                <Card_Informacao 
-                    texto= {texto_bloco_card_informacao[1][0]}
-                    desc= {texto_bloco_card_informacao[1][1]}
-                    sub_desc = {texto_bloco_card_informacao[1][2]}
-                    imagem = {imagem_exibicao[1]}
-                    layout = {layout_bloco_card_informacoes}
-                />
-
-                <Card_Informacao 
-                    texto= {texto_bloco_card_informacao[2][0]}
-                    desc= {texto_bloco_card_informacao[2][1]}
-                    sub_desc = {texto_bloco_card_informacao[2][2]}
-                    imagem = {imagem_exibicao[2]}
-                    layout = {layout_bloco_card_informacoes}
-                />
-
-                <>
-                    {texto_bloco_card_informacao[3] != null && 
                     <Card_Informacao 
-                        texto= {texto_bloco_card_informacao[3][0]} 
-                        desc= {texto_bloco_card_informacao[3][1]} 
-                        sub_desc = {texto_bloco_card_informacao[3][2]} 
-                        imagem = {imagem_exibicao[3]} 
+                        texto = {texto_bloco_card_informacao[0][0]}
+                        desc = {texto_bloco_card_informacao[0][1]}
+                        sub_desc = {texto_bloco_card_informacao[0][2]}
+                        imagem = {imagem_exibicao[0]}
                         layout = {layout_bloco_card_informacoes}
-                    /> 
-                    }
-                </>
+                        
+                    />
 
+                    <Card_Informacao 
+                        texto= {texto_bloco_card_informacao[1][0]}
+                        desc= {texto_bloco_card_informacao[1][1]}
+                        sub_desc = {texto_bloco_card_informacao[1][2]}
+                        imagem = {imagem_exibicao[1]}
+                        layout = {layout_bloco_card_informacoes}
+                    />
+
+                    <Card_Informacao 
+                        texto= {texto_bloco_card_informacao[2][0]}
+                        desc= {texto_bloco_card_informacao[2][1]}
+                        sub_desc = {texto_bloco_card_informacao[2][2]}
+                        imagem = {imagem_exibicao[2]}
+                        layout = {layout_bloco_card_informacoes}
+                    />
+
+                    <>
+                        {texto_bloco_card_informacao[3] != null && 
+                        <Card_Informacao 
+                            texto= {texto_bloco_card_informacao[3][0]} 
+                            desc= {texto_bloco_card_informacao[3][1]} 
+                            sub_desc = {texto_bloco_card_informacao[3][2]} 
+                            imagem = {imagem_exibicao[3]} 
+                            layout = {layout_bloco_card_informacoes}
+                        /> 
+                        }
+                    </>
+
+                </div>
 
             </div>
 
-        </div>
+
+        </section>
     );
 }
