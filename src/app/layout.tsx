@@ -31,10 +31,20 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         
+<<<<<<< HEAD
         <Navbar/>
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
+=======
+
+        <TRPCReactProvider>{children}</TRPCReactProvider>
+
+
+
+        <NossaHistoria/>
+
+>>>>>>> NossaHistoria
         <Footer/>
 
       </body>
