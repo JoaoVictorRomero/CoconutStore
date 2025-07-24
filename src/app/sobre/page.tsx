@@ -15,6 +15,11 @@ export default function Page(){
 
             <NossaHistoria/>
 
+            <Pre_footer
+            tipo = "Nossa Equipe"/>
+
+            <Pre_footer
+            tipo = "Entre em Contato"/>
         
 
         </div>
