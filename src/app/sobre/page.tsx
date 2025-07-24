@@ -9,6 +9,8 @@ export default function Page(){
         <div>
 
             <Intro_pag_sobre/>
+
+            <Generico_card_sobre/>
             
 
             <NossaHistoria/>
