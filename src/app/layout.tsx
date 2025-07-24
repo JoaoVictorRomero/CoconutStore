@@ -36,18 +36,6 @@ export default function RootLayout({
 
         <NossaHistoria/>
 
-        <Pre_footer
-        tipo = "Nossa Equipe"
-        />
-
-        <Pre_footer
-        tipo = "Entre em Contato"
-        />
-
-        <Pre_footer
-        tipo = "Por que Escolher a CoconutStore?"
-        />
-
         <Footer/>
 
       </body>
