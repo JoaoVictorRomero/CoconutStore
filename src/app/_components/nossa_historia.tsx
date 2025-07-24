@@ -2,7 +2,7 @@
 export function NossaHistoria(){
     return(
 
-        <section className="bg-gradient-to-br from-[#f0fdfd] to-[#fffbeb] py-20">
+        <section className="bg-gradient-to-br from-[#f0fdfd] to-[#fffbeb] py-10">
 
             <section className="flex flex-col md:flex-row max-w-[1280px] m-auto gap-x-10 px-0 md:px-10">
 
