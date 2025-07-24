@@ -10,18 +10,11 @@ export default function Page(){
 
             <Intro_pag_sobre/>
             
-            <Generico_card_sobre/>
 
             <NossaHistoria/>
 
-            <Pre_footer
-            tipo = "Nossa Equipe"
-            />
-
-            <Pre_footer
-            tipo = "Entre em Contato"
-            />
         
+
         </div>
     );
 }

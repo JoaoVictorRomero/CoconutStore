@@ -35,8 +35,6 @@ export default function RootLayout({
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
 
-        <NossaHistoria/>
-
         <Footer/>
 
       </body>
