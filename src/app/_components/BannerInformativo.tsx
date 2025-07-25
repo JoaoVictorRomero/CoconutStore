@@ -1,5 +1,5 @@
 
-export function NossaHistoria(){
+export function BannerInformativo(){
     return(
 
         <section className="bg-gradient-to-br from-[#f0fdfd] to-[#fffbeb] py-10">

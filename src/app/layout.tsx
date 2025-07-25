@@ -7,7 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer"
-import { NossaHistoria } from "./_components/nossa_historia";
+import { BannerInformativo } from "./_components/BannerInformativo";
 import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
 import { Generico_card_sobre } from "./_components/generico_card_sobre";
 
