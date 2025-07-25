@@ -1,7 +1,7 @@
 import { Footer } from "../_components/footer";
 import { Generico_card_sobre } from "../_components/generico_card_sobre";
 import { Intro_pag_sobre } from "../_components/intro_pag_sobre";
-import { NossaHistoria } from "../_components/nossa_historia";
+import { NossaHistoria } from "../_components/BannerInformativo";
 import { Pre_footer } from "../_components/pre_footer";
 
 export default function Page(){
