@@ -27,18 +27,22 @@ model Post {
 }
 
 model Product {
-  id          Int    @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
   description String
   price       Int
-  Cart        Cart?  @relation(fields: [cartId], references: [id])
-  cartId      Int?
+  cartItems   CartItem[]
 }
 
-model Cart {
-  id       Int       @id @default(autoincrement())
-  products Product[]?
-  User     User[]
+model CartItem {
+  id        Int     @id @default(autoincrement())
+  quantity  Int     @default(1)
+  user      User    @relation(fields: [userId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  userId    String
+  productId Int
+
+  @@unique([userId, productId])
 }
 
 // Necessary for Next auth
@@ -70,16 +74,15 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?    @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
-  cart          Cart      @relation(fields: [cartId], references: [id])
-  cartId        Int
+  cartItems     CartItem[]
 }
 
 model VerificationToken {

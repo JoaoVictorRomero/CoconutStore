@@ -10,6 +10,13 @@ async function main() {
     // skipDuplicates: true,
   })
 
+  const cart = await prisma.cartItem.create({
+    data: {
+      quantity: 2,
+      user: { connect: { id: "cmdet27910000sbkuq55y66cp" } },
+      product: { connect: { id: 8} }
+    }
+  });
   console.log({products})
 
 }
