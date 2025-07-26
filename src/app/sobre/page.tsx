@@ -5,10 +5,12 @@ import { Generico_card_sobre } from "../_components/generico_card_sobre";
 import { Intro_pag_sobre } from "../_components/intro_pag_sobre";
 import { BannerInformativo } from "../_components/bannerInformativo";
 import { Pre_footer } from "../_components/pre_footer";
+import { Navbar } from '../_components/navbar';
 
 export default function Page(){
     return(
         <div>
+            <Navbar/>
 
             <Intro_pag_sobre/>
 
@@ -36,14 +38,6 @@ export default function Page(){
                     </div>
                 
             </BannerInformativo>
-
-            <Pre_footer
-            tipo = "Nossa Equipe"/>
-
-            <Pre_footer
-            tipo = "Entre em Contato"/>
-
-
 
             <Pre_footer
             tipo = "Nossa Equipe"/>

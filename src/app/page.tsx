@@ -4,12 +4,12 @@ import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer";
 import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
 import { BannerInformativo } from "./_components/bannerInformativo";
+import { Conheca_Produtos } from './_components/conheca_produtos';
 
 export default function HomePage() {
   return(
     <main>
       <Navbar/>
-
 
       <BannerInformativo
           titulo = {<h1 className = "text-6xl font-semibold"> Cocos Frescos <span className="flex max-w-[300px] text-orange-700"> Direto da Fazenda</span> </h1>}
@@ -27,7 +27,8 @@ export default function HomePage() {
 
       </BannerInformativo>
 
-      
+      <Conheca_Produtos/>
+
       <Pre_footer
       tipo = "Por que Escolher a CoconutStore?"
       />

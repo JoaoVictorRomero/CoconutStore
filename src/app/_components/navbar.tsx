@@ -1,5 +1,6 @@
 import { Button } from "src/components/ui/button"
 import Logar from "./auth"
+import Link from 'next/link';
 
 
 function ShoppingCart() {
@@ -12,30 +13,35 @@ function ShoppingCart() {
 
 export function Navbar() {
   return(
-    <div className="bg-orange-50 font-sans">
-      <nav className="flex h-12  max-w-[1280px] m-auto">
-        <ul className="basis-1/3 flex justify-start items-center">
-          <li className="text-xl text-amber-900 font-bold"><a href="#" > 🥥 CoconutStore </a></li>
-        </ul>
+    <div className="bg-white border  border-gray-300 shadow-xl font-sans py-5">
+      <nav className="flex max-w-[1280px] m-auto">
 
-        <ul className="basis-1/3 flex justify-center gap-8 items-center text-sm">
-          <li><a href="#"> Início</a></li>
-          <li><a href="#"> Produtos</a></li>
-          <li><a href="#"> Sobre</a></li>
-          <li><a href="#"> Contato</a></li>
-        </ul>
+        <section className="flex flex-col md:flex-row w-full">
+
+          <ul className="basis-1/3 flex justify-center md:justify-start items-center">
+            <li className="text-3xl text-amber-900 font-bold"><a href="#" > 🥥 CoconutStore </a></li>
+          </ul>
+
+          <ul className="basis-1/3 flex justify-center gap-8 items-center text-md py-3">
+            <li> <Link href="/">Início</Link> </li>
+            <li> <Link href="../produtos">Produtos</Link> </li>
+            <li> <Link href="../sobre">Sobre</Link> </li>
+          </ul>
 
 
-        <ul className="basis-1/3 flex justify-end items-center gap-8">
-          {/* <li><Button variant="outline" size="sm" > */}
-            {/* <ShoppingCart/> */}
-            {/* Carrinho */}
-          {/* </Button></li> */}
-          <li>
-            <Logar/>
-          </li>
-        </ul>
+          <ul className="basis-1/3 flex  justify-center md:justify-end items-center gap-8 ">
+            {/* <li><Button variant="outline" size="sm" > */}
+              {/* <ShoppingCart/> */}
+              {/* Carrinho */}
+            {/* </Button></li> */}
+            <li>
+              <Logar/>
+            </li>
+          </ul>
+        </section>
+
       </nav>
     </div>
+
   )
 }
