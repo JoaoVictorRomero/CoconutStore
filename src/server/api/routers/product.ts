@@ -34,5 +34,35 @@ export const productRouter = createTRPCRouter({
         productId,
       },
     })
-  })
+  }),
+
+  showCartItems: protectedProcedure
+  .query(async ({ctx}) => {
+    return await ctx.db.cartItem.findMany() ?? null;
+  }),
+
+  getProduct: publicProcedure
+  .input(z.object({prodId: z.number()}))
+  .query(async ({ctx, input}) => {
+    return await ctx.db.product.findUnique({
+      where: {
+        id: input.prodId,
+      }
+    })
+  }),
+
+  deleteCartItem: protectedProcedure
+  .input(z.object({prodId: z.number()}))
+  .mutation(async ({ctx, input}) => {
+    let userId = ctx.session.user.id;
+    let productId = input.prodId;
+    return await ctx.db.cartItem.delete({
+      where: {
+        userId_productId: {
+          userId,
+          productId,
+        },
+      },
+    })
+  }),
 });
