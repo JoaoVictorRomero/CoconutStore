@@ -47,7 +47,7 @@ function Cadastrar() {
           await signIn("discord")
         }}
       >
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="lg">
           Logar pelo Discord
         </Button>
       </form>
