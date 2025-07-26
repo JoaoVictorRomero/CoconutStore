@@ -7,7 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "./_components/navbar";
 import { Footer } from "./_components/footer";
 import { Pre_footer } from "./_components/pre_footer"
-import { BannerInformativo } from "./_components/BannerInformativo";
+import { BannerInformativo } from "./_components/bannerInformativo";
 import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
 import { Generico_card_sobre } from "./_components/generico_card_sobre";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable}`}>
       <body>
-        <Navbar /> 
+        
 
         <TRPCReactProvider>{children}</TRPCReactProvider>
 
