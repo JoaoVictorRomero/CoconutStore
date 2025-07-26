@@ -9,8 +9,6 @@ import { Conheca_Produtos } from './_components/conheca_produtos';
 export default function HomePage() {
   return(
     <main>
-      <Navbar/>
-
       <BannerInformativo
           titulo = {<h1 className = "text-6xl font-semibold"> Cocos Frescos <span className="flex max-w-[300px] text-orange-700"> Direto da Fazenda</span> </h1>}
 
