@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar"
+import Link from "next/link"
 
 function Logado({image, name}) {
   return(
@@ -23,7 +24,7 @@ function Logado({image, name}) {
         <DropdownMenuContent>
           <DropdownMenuLabel>{name}</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Carrinho</DropdownMenuItem>
+          <DropdownMenuItem><Link href="../carrinho">Carrinho</Link></DropdownMenuItem>
           <DropdownMenuItem>Histórico</DropdownMenuItem>
           <DropdownMenuItem> 
             <form
