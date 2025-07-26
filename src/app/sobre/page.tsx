@@ -10,8 +10,6 @@ import { Navbar } from '../_components/navbar';
 export default function Page(){
     return(
         <div>
-            <Navbar/>
-
             <Intro_pag_sobre/>
 
             <Generico_card_sobre/>
