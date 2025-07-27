@@ -1,10 +1,28 @@
 "use client"
 import { api } from "~/trpc/react"
 import { Carrinho_Compra } from "../_components/carrinho_compre";
+import { useState } from "react";
+
 
 function ProdutosNoCarrinho({productId, quantity}) {
   const [produto] = api.product.getProduct.useSuspenseQuery({prodId: productId})
   const utils = api.useUtils();
+
+  const [count, setCount] = useState(quantity);
+
+  const addCart = api.product.addToCart.useMutation({
+    onSuccess: async () => {
+      await utils.product.invalidate();
+      setCount(count + 1);
+    }
+  });
+
+  const removeCart = api.product.remoteToCart.useMutation({
+    onSuccess: async () => {
+      await utils.product.invalidate();
+      setCount(count - 1);
+    }
+  });
 
   const deletar = api.product.deleteCartItem.useMutation({
     onSuccess: async () => {
@@ -15,7 +33,6 @@ function ProdutosNoCarrinho({productId, quantity}) {
   return(
     <div className="border-solid p-5">
       <div className="flex flex-col md:flex-row border rounded-md shadow-sm p-5 gap-x-10">
-        
         <figure className="flex justify-center items-center">
           <p className="text-5xl ">🥥</p>
         </figure>
@@ -27,9 +44,9 @@ function ProdutosNoCarrinho({productId, quantity}) {
         </header>
 
         <section className="flex w-full gap-x-3  items-center justify-center md:justify-end">
-          <button className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> - </button>
-          <p className="justify-center">{quantity}</p>
-          <button className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> + </button>
+          <button onClick={() => count <= 1 ? deletar.mutate({prodId: productId}) : removeCart.mutate({productId: productId})} className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> - </button>
+          <p className="justify-center">{count}</p>
+          <button onClick={() => addCart.mutate({productId: productId})} className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> + </button>
           <button className="hover:bg-red-200 p-3 transition duration-400 border cursor-pointer border-white rounded-md" onClick={() => deletar.mutate({prodId: productId})}>🗑️</button>
         </section>
          

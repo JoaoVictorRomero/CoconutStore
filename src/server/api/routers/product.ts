@@ -36,6 +36,30 @@ export const productRouter = createTRPCRouter({
     })
   }),
 
+  remoteToCart: protectedProcedure
+  .input(z.object({productId: z.number()}))
+  .mutation(async ({ctx, input}) => {
+    let userId = ctx.session.user.id;
+    let productId = input.productId;
+    return await ctx.db.cartItem.upsert({
+      where: {
+        userId_productId: {
+          userId,
+          productId,
+        },
+      },
+      update: {
+        quantity: {
+          decrement: 1,
+        },
+      },
+      create: {
+        userId,
+        productId,
+      },
+    })
+  }),
+
   showCartItems: protectedProcedure
   .query(async ({ctx}) => {
     return await ctx.db.cartItem.findMany() ?? null;
