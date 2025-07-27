@@ -1,5 +1,6 @@
 "use client"
 import { api } from "~/trpc/react"
+import { Carrinho_Compra } from "../_components/carrinho_compre";
 
 function ProdutosNoCarrinho({productId, quantity}) {
   const [produto] = api.product.getProduct.useSuspenseQuery({prodId: productId})
@@ -13,10 +14,26 @@ function ProdutosNoCarrinho({productId, quantity}) {
 
   return(
     <div className="border-solid p-5">
-      <h1>{produto?.name} - Quantidade:{quantity}</h1> 
-      <p>R$ {produto?.price}</p>
-      <p>{produto?.description}</p>
-      <button onClick={() => deletar.mutate({prodId: productId})}>Deletar</button>
+      <div className="flex flex-col md:flex-row border rounded-md shadow-sm p-5 gap-x-10">
+        
+        <figure className="flex justify-center items-center">
+          <p className="text-5xl ">🥥</p>
+        </figure>
+
+        <header className="flex flex-col w-full items-center  md:items-start justify-center md:justify-normal py-5">
+          <h1 className="font-semibold ">{produto?.name}</h1>
+          <p className="text-orange-700 font-bold text-xl">R$ {produto?.price} </p>
+          <p className="text-gray-500 text-sm">{produto?.description}</p>
+        </header>
+
+        <section className="flex w-full gap-x-3  items-center justify-center md:justify-end">
+          <button className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> - </button>
+          <p className="justify-center">{quantity}</p>
+          <button className="bg-white border border-bg-gray-400 rounded-md px-4 py-2 font-bold text-lg hover:bg-gray-200 cursor-pointer transition duration-300"> + </button>
+          <button className="hover:bg-red-200 p-3 transition duration-400 border cursor-pointer border-white rounded-md" onClick={() => deletar.mutate({prodId: productId})}>🗑️</button>
+        </section>
+         
+      </div>
     </div>
   )
 }
@@ -26,7 +43,11 @@ export default function Carrinho() {
 
   return(
     <>
-      {listaDeProdutos.map(produto => <ProdutosNoCarrinho key={produto.id} productId={produto.productId} quantity={produto.quantity}/> )}
+      <Carrinho_Compra>
+        {listaDeProdutos.map(produto => <ProdutosNoCarrinho key={produto.id} productId={produto.productId} quantity={produto.quantity}/> )}
+      </Carrinho_Compra>
+
+
     </>
   )
 }
