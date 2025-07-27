@@ -81,17 +81,15 @@ export default function Carrinho() {
       <Carrinho_Compra>
         {listaDeProdutos.map(produto => <ProdutosNoCarrinho key={produto.id} productId={produto.productId} quantity={produto.quantity}/> )}
 
-
           <Button className="w-full bg-amber-700" asChild>
-            <button onClick={() => toast("Pedido enviado com sucesso", {
+            <button onClick={() => {toast("Pedido enviado com sucesso", {
               description: "Aguarde alguns segundos para processamos a compra",
               action: {
                 label: "Entendido",
                 onClick: () => deletarTudo.mutate(),
               },
-            })} >Finalizar pedido</button>
+            }); deletarTudo.mutate()}} >Finalizar pedido</button>
           </Button>
-
           <Toaster/>
         </Carrinho_Compra>
         : <SemCarrinho/>
