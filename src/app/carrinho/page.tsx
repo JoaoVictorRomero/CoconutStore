@@ -55,14 +55,25 @@ function ProdutosNoCarrinho({productId, quantity}) {
   )
 }
 
+function SemCarrinho() {
+  return(
+    <>
+      <p>Não há produto aqui</p>
+    </>
+  )
+}
+
 export default function Carrinho() {
   const [listaDeProdutos] = api.product.showCartItems.useSuspenseQuery();
 
   return(
     <>
+        { listaDeProdutos?.length ? 
       <Carrinho_Compra>
         {listaDeProdutos.map(produto => <ProdutosNoCarrinho key={produto.id} productId={produto.productId} quantity={produto.quantity}/> )}
       </Carrinho_Compra>
+      : <SemCarrinho/>
+      }
 
 
     </>
