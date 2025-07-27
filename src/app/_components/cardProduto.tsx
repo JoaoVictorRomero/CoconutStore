@@ -14,7 +14,12 @@ import { handleAddCart } from "./actions"
 import { api } from "~/trpc/react"
 
 export function CardProduto({name, description, price, productId}) {
-  const addCart = api.product.addToCart.useMutation();
+  const utils = api.useUtils();
+  const addCart = api.product.addToCart.useMutation({
+    onSuccess: async () => {
+      utils.product.invalidate();
+    }
+  });
 
   return (
     <Card className="w-full max-w-sm">
