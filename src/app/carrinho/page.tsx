@@ -2,6 +2,8 @@
 import { api } from "~/trpc/react"
 import { Carrinho_Compra } from "../_components/carrinho_compre";
 import { useState } from "react";
+import { Button } from "~/components/ui/button";
+import { toast, Toaster } from "sonner";
 
 
 function ProdutosNoCarrinho({productId, quantity}) {
@@ -65,14 +67,34 @@ function SemCarrinho() {
 
 export default function Carrinho() {
   const [listaDeProdutos] = api.product.showCartItems.useSuspenseQuery();
+  const utils = api.useUtils();
+  const deletarTudo = api.product.deleteAllCartItem.useMutation({
+    onSuccess: async () => {
+      utils.product.invalidate();
+    }
+  });
+  let total = 0;
 
   return(
     <>
         { listaDeProdutos?.length ? 
       <Carrinho_Compra>
         {listaDeProdutos.map(produto => <ProdutosNoCarrinho key={produto.id} productId={produto.productId} quantity={produto.quantity}/> )}
-      </Carrinho_Compra>
-      : <SemCarrinho/>
+
+
+          <Button className="w-full bg-amber-700" asChild>
+            <button onClick={() => toast("Pedido enviado com sucesso", {
+              description: "Aguarde alguns segundos para processamos a compra",
+              action: {
+                label: "Entendido",
+                onClick: () => deletarTudo.mutate(),
+              },
+            })} >Finalizar pedido</button>
+          </Button>
+
+          <Toaster/>
+        </Carrinho_Compra>
+        : <SemCarrinho/>
       }
 
 
