@@ -89,4 +89,13 @@ export const productRouter = createTRPCRouter({
       },
     })
   }),
+
+  deleteAllCartItem: protectedProcedure
+  .mutation(async ({ctx}) => {
+    return ctx.db.cartItem.deleteMany({
+      where: {
+        userId: ctx.session.user.id
+      }
+    })
+  })
 });
