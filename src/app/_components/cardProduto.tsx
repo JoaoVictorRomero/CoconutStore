@@ -19,7 +19,7 @@ export function CardProduto({name, description, price, productId}) {
   return (
     <Card className="w-full max-w-sm">
       <CardHeader className="text-center gap-2">
-        <CardTitle className="text-2xl">🥥</CardTitle>
+        <CardTitle className="text-6xl">🥥</CardTitle>
       </CardHeader>
       <CardHeader className="text-center">
         <CardTitle className="text-xl">{name}</CardTitle>
