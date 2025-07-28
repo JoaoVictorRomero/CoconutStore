@@ -26,9 +26,9 @@ export default function HomePage() {
 
       </BannerInformativo>
 
-      <Conheca_Produtos/>
-
       <MostSoldItems/>
+      
+      <Conheca_Produtos/>
 
       <Pre_footer
       tipo = "Por que Escolher a CoconutStore?"
