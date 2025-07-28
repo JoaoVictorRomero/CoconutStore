@@ -91,7 +91,7 @@ export default function Carrinho() {
               },
             }); deletarTudo.mutate();
 
-            {listaDeProdutos.map(produto => {aumentarComprado.mutate({prodId: produto.productId, itemQuantity: produto.quantity}); alert(produto.productId)})}
+            {listaDeProdutos.map(produto => {aumentarComprado.mutate({prodId: produto.productId, itemQuantity: produto.quantity});})}
             }} >Finalizar pedido</button>
           </Button>
           <Toaster/>
