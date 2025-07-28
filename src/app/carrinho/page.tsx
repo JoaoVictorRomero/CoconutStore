@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { toast, Toaster } from "sonner";
 import { addBoughtItem } from "../_components/actions";
+import Link from "next/link";
 
 
 function ProdutosNoCarrinho({productId, quantity}) {
@@ -61,7 +62,20 @@ function ProdutosNoCarrinho({productId, quantity}) {
 function SemCarrinho() {
   return(
     <>
-      <p>Não há produto aqui</p>
+      <main className="m-auto">
+
+        <section className="max-w-[1280px] h-full m-auto py-15">
+            <header className="flex flex-col font-semibold justify-center items-center">
+              <h1 className="text-2xl">Seu carrinho está vazio!</h1>
+              <h2 className="text-xl">Aproveite nossas ofertas e encha-o de coisas incríveis.</h2>
+              <p className="text-lg text-gray-500 pt-5">Não deixe seu carrinho esperando! Veja nossos lançamentos e promoções especiais.</p>
+            </header>
+            <section className="flex justify-center items-center py-5">
+              <button className="bg-orange-600 text-white border rounded-md text-xl py-3 px-10"><Link href ="../produtos">🛒 Explorar Produtos</Link></button>
+            </section>
+          </section>
+        
+      </main>
     </>
   )
 }
