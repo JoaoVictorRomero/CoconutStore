@@ -97,5 +97,20 @@ export const productRouter = createTRPCRouter({
         userId: ctx.session.user.id
       }
     })
+  }),
+
+  addBoughtItem: protectedProcedure
+  .input(z.object({itemQuantity: z.number().nonnegative(), prodId: z.number()}))
+  .mutation(async ({input, ctx}) => {
+    return ctx.db.product.update({
+      where: {
+        id: input.prodId,
+      },
+      data: {
+        bought: {
+          increment: input.itemQuantity,
+        }
+      },
+    })
   })
 });

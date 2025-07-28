@@ -4,6 +4,7 @@ import { Carrinho_Compra } from "../_components/carrinho_compre";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { toast, Toaster } from "sonner";
+import { addBoughtItem } from "../_components/actions";
 
 
 function ProdutosNoCarrinho({productId, quantity}) {
@@ -73,7 +74,7 @@ export default function Carrinho() {
       utils.product.invalidate();
     }
   });
-  let total = 0;
+  const aumentarComprado = api.product.addBoughtItem.useMutation();
 
   return(
     <>
@@ -88,7 +89,10 @@ export default function Carrinho() {
                 label: "Entendido",
                 onClick: () => deletarTudo.mutate(),
               },
-            }); deletarTudo.mutate()}} >Finalizar pedido</button>
+            }); deletarTudo.mutate();
+
+            {listaDeProdutos.map(produto => {aumentarComprado.mutate({prodId: produto.productId, itemQuantity: produto.quantity}); alert(produto.productId)})}
+            }} >Finalizar pedido</button>
           </Button>
           <Toaster/>
         </Carrinho_Compra>
