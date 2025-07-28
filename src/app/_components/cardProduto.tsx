@@ -22,11 +22,11 @@ export function CardProduto({name, description, price, productId}) {
   });
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader className="text-center gap-2">
-        <CardTitle className="text-2xl">🥥</CardTitle>
-      </CardHeader>
+    <Card className="w-full max-w-sm transition duration-150 ease-in-out hover:scale-105 hover:text-blue-500">
       <CardHeader className="text-center">
+        <CardTitle className="text-5xl">🥥</CardTitle>
+      </CardHeader>
+      <CardHeader className="text-center ">
         <CardTitle className="text-xl">{name}</CardTitle>
         <CardDescription>
           {description}
@@ -37,7 +37,7 @@ export function CardProduto({name, description, price, productId}) {
       </CardContent>
       <CardFooter className="flex-col gap-2">
         <Button className="w-full bg-amber-700" asChild>
-          <button onClick={() => addCart.mutate({productId})}>
+          <button className="cursor-pointer" onClick={() => addCart.mutate({productId})}>
             {addCart.isPending ? "Adicionando..." : "Adicionar ao carrinho"}
           </button>
         </Button>

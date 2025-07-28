@@ -15,11 +15,14 @@ import Link from "next/link"
 function Logado({image, name}) {
   return(
       <DropdownMenu>
-        <DropdownMenuTrigger>
-          <Avatar>
+        <DropdownMenuTrigger className="flex cursor-pointer">
+          <Avatar className="w-[40px] h-[40px]">
             <AvatarImage src={image} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
+        <header className="flex justify-center items-center px-3">
+          <h1>{name} <span className="text-gray-400 text-sm pb-2">v</span></h1>
+        </header>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>{name}</DropdownMenuLabel>
@@ -33,7 +36,7 @@ function Logado({image, name}) {
                 await signOut()
               }}
             >
-              <button type="submit">Sair</button>
+              <button className="cursor-pointer" type="submit">Sair</button>
             </form>
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -60,7 +63,9 @@ export default async function Logar() {
 
   return (
     <>
-      {session?.user ? <Logado name={session.user.name} image={session.user.image} /> : <Cadastrar/>}
+      <section className="flex">
+        {session?.user ? <Logado name={session.user.name} image={session.user.image} /> : <Cadastrar/>}
+      </section>
     </>
   )
 } 
