@@ -16,7 +16,7 @@ export function MostSoldItems() {
 
           <section className="flex flex-col md:flex-row gap-x-4 justify-center items-center gap-y-4">
             {itensMaisVendidos.map(produto => 
-            <CardProduto name={produto.name} description={`Top seller com mais de unidades ${produto.bought} vendidas`} price={produto.price}/>
+            <CardProduto productId={produto.id} name={produto.name} description={`Top seller com mais de unidades ${produto.bought} vendidas`} price={produto.price}/>
             )}
           </section>
 
