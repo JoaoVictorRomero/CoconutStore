@@ -1,4 +1,5 @@
-# Projetos loja de Coco
+# Projeto de E-commerce para Loja de Produtos à Base de Coco
+
 
 ### Instalação do projeto
 
