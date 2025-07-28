@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { prisma } from "@/server/db";
 
 import {
   createTRPCRouter,
@@ -120,5 +121,27 @@ export const productRouter = createTRPCRouter({
       take: 3,
       orderBy: {bought: 'desc'}
     })
-  })
+  }),
+
+  
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    return ctx.db.product.findMany({
+      orderBy: { createdAt: "desc" }
+    });
+  }),
+
+
+  create: publicProcedure.input(
+    z.object({
+      name: z.string(),
+      price: z.number(),
+      image: z.string().url().optional(),
+      description: z.string(),
+      category: z.string(),
+      inStock: z.boolean(),
+      topSeller: z.boolean(),
+    })
+  ).mutation(async ({ ctx, input }) => {
+    return ctx.db.product.create({ data: input });
+  }),
 });
