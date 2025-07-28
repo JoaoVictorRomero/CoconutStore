@@ -5,6 +5,7 @@ import { Pre_footer } from "./_components/pre_footer";
 import { Intro_pag_sobre } from "./_components/intro_pag_sobre";
 import { BannerInformativo } from "./_components/bannerInformativo";
 import { Conheca_Produtos } from './_components/conheca_produtos';
+import { MostSoldItems } from './_components/mostSoldItems';
 
 export default function HomePage() {
   return(
@@ -25,6 +26,8 @@ export default function HomePage() {
 
       </BannerInformativo>
 
+      <MostSoldItems/>
+      
       <Conheca_Produtos/>
 
       <Pre_footer

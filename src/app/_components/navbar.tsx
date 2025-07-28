@@ -19,7 +19,7 @@ export function Navbar() {
         <section className="flex flex-col md:flex-row w-full">
 
           <ul className="basis-1/3 flex justify-center md:justify-start items-center">
-            <li className="text-3xl text-amber-900 font-bold"><a href="#" > 🥥 CoconutStore </a></li>
+            <li className="text-3xl text-amber-900 font-bold"><Link href="/">🥥 CoconutStore</Link></li>
           </ul>
 
           <ul className="basis-1/3 flex justify-center gap-8 items-center text-md py-3">

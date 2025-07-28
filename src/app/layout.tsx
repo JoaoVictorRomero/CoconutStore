@@ -29,14 +29,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body>
-        <Navbar/> 
+       <body>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
 
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+          <main className="flex-grow">
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+          </main>
 
-
-        <Footer/>
-
+          <Footer />
+        </div>
       </body>
     </html>
   );
