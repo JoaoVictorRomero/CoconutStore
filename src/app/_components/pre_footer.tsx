@@ -142,10 +142,10 @@ export function Pre_footer({tipo}:prop_pre_footer){
 
         // Bloco 1 --> div pai, div que engloba tudo
         <section className= {layout_blocos_1e2[0]}>
-            <div className="max-w-[1280px] m-auto py-15">
+            <div className="max-w-[1280px] m-auto py-10">
 
                 {/*Bloco 2 --> div que apresenta o Titulo e Subtítulo */}
-                <header className=" w-full m-auto pt-10 pb-10">
+                <header className=" w-full m-auto pb-10">
                     <h1 className="text-center text-[35px] font-semibold">{titulo_subtitulo_principal[0]}</h1>
                     <p className="text-center text-[#4B5563] p-3 text-[18.5px]">{titulo_subtitulo_principal[1]}</p>
                 </header>
