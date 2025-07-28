@@ -112,5 +112,13 @@ export const productRouter = createTRPCRouter({
         }
       },
     })
+  }),
+
+  getThreeMostSold: publicProcedure
+  .query(async ({ctx}) => {
+    return ctx.db.product.findMany({
+      take: 3,
+      orderBy: {bought: 'desc'}
+    })
   })
 });
